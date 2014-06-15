@@ -42,7 +42,7 @@ a {
 	color:#696969;
 }
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 	color:#696969;
 }
 .clear {
@@ -96,6 +96,33 @@ a.user-ico span {
 	background-color: #405064;
 	color: #fff;
 	text-decoration: none;
+}
+
+.breadcrumb{
+	border-bottom: #ddd solid 1px;
+	font-size: 11px;
+	background: #fafafa;
+	height: 44px;
+	line-height: 43px;
+	padding: 0 10px;
+}
+
+.breadcrumb a{
+	color: #666;
+	margin-right: 5px;
+}
+
+.breadcrumb a i{
+	margin-right: 3px;
+	color: #999;
+}
+
+.breadcrumb a:after {
+	content: "\f054";
+	font-family: FontAwesome;
+	font-size: 10px;
+	color: #ccc;
+	margin-left: 5px;
 }
 /*----------------------------------container-----------------------------*/
 
@@ -169,8 +196,21 @@ a.user-ico span {
 	border-bottom: 1px solid #fff;
 }
 /*----------------------------------mainbody-------------------------------*/
-.mainbody {
-	margin-left:241px;
-	min-height: 630px;
+.main{
+	margin-left:241px
+}
+.content {
+	min-height: 529px;
 	background: #fff;
 }
+
+/*--  footer --*/
+.footer{
+	background: #ffffff;
+	border-top: #ddd solid 1px;
+	text-align: center;
+	padding: 10px 0;
+	height: 30px;
+	line-height: 30px;
+}
+

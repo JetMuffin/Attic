@@ -9,8 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>登录</title>
-<link rel="stylesheet" type="text/css" href="css/login.css" />
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="source/css/login.css" />
+<link href="source/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 </head>
 <body>
@@ -38,7 +38,7 @@
 		</form>​
 	</section>	
 </div>
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="source/js/jquery.js"></script>
 <script>
 	$(document).ready(function(){
 		$(".removing-tag").click(function(){
