@@ -4,9 +4,11 @@ public class Node {
 	private int id;
 	private int pid;
 	private boolean is_nav;
-	private String name;
+	private String module;
+	private String action;
 	private String title;
 	private String icon;
+	private String url;
 	
 	public int getId()
 	{
@@ -32,13 +34,21 @@ public class Node {
 	{
 		this.is_nav=flag;
 	}
-	public String getName()
+	public String getModule()
 	{
-		return name;
+		return module;
 	}
-	public void setName(String name)
+	public void setModule(String module)
 	{
-		this.name=name;
+		this.module=module;
+	}
+	public String getAction()
+	{
+		return action;
+	}
+	public void setAction(String action)
+	{
+		this.action=action;
 	}
 	public String getTitle()
 	{
@@ -55,5 +65,13 @@ public class Node {
 	public void setIcon(String icon)
 	{
 		this.icon=icon;
+	}
+	public String getUrl()
+	{
+		return url;
+	}
+	public void setUrl(String url)
+	{
+		this.url=url;
 	}
 }

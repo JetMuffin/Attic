@@ -1,7 +1,4 @@
 @charset "utf-8";
-body, h1, h2, h3, h4, h5, h6, hr, p, form, blockquote, dl, dd, pre {
-	margin:0;
-}
 button, th, td {
 	padding:0;
 }
@@ -22,7 +19,22 @@ fieldset, img {
 select, input, img, select {
 	vertical-align:middle;
 }
-input {
+.input, .form-input input, .form-input select, .form-input textarea, .chosen-container-multi, .selector, .bootstrap-timepicker-widget table td input, .ui-toolbar select, .ui-toolbar input {
+	padding: 0 10px;
+	height: 32px;
+	float: none;
+	color: #777;
+	font-size: 12px;
+	border: #cdcdcd solid 1px;
+	box-shadow: inset 1px 1px 3px #f6f6f6;
+	-moz-box-shadow: inset 1px 1px 3px #f6f6f6;
+	-webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.input, .form-input input, .form-input textarea,.button{
+	border-radius:3px;
 }
 select, textarea {
 }
@@ -31,8 +43,8 @@ h2 {
 	font-weight:700;
 }
 body {
-	font:12px/1.5em Arial;
-	color:#000;
+	font:14px/1.5em Arial;
+	color: #3a4049;
 	background:#fafafa;
 	padding: 20px;
 	background-image: url(../images/bg4.jpg);
@@ -100,20 +112,20 @@ a.user-ico span {
 
 .breadcrumb{
 	border-bottom: #ddd solid 1px;
-	font-size: 11px;
+	font-size: 13px;
 	background: #fafafa;
-	height: 44px;
-	line-height: 43px;
+	height: 42px;
+	line-height: 42px;
 	padding: 0 10px;
 }
 
-.breadcrumb a{
+.breadcrumb a,.breadcrumb span{
 	color: #666;
 	margin-right: 5px;
 }
 
-.breadcrumb a i{
-	margin-right: 3px;
+.breadcrumb a i,.breadcrumb span i{
+	margin-right: 6px;
 	color: #999;
 }
 
@@ -122,7 +134,7 @@ a.user-ico span {
 	font-family: FontAwesome;
 	font-size: 10px;
 	color: #ccc;
-	margin-left: 5px;
+	margin-left: 6px;
 }
 /*----------------------------------container-----------------------------*/
 
@@ -146,6 +158,9 @@ a.user-ico span {
 	height: 50px;
 	line-height: 52px;
 	color: #fff;
+}
+.logo h1{
+	margin: 0;
 }
 .sidebar-menu{
 	padding: 10px;
@@ -172,7 +187,7 @@ a.user-ico span {
 	text-decoration: none;
 	background: #f1f3f7;
 } 
-.sidebar li.current>a {
+.sidebar-menu li.active>a, .sidebar-menu li.current-page>a {
 	background: #fff;
 	color: #303b49;
 }
@@ -187,6 +202,36 @@ a.user-ico span {
 	line-height: 30px;
 	margin-top: -16px;
 }
+.sidebar-menu li ul{
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	margin: 0;
+	background: rgba(255,255,255,.5);
+}
+.sidebar-menu li ul li{
+	border-color: #e4e9f0;
+	margin: 0;
+}
+.sidebar-menu li ul li a {
+	height: 32px;
+	line-height: 32px;
+	padding: 0 10px 0 35px;
+	font-weight: 400;
+	font-size: 13px;
+	border-radius: 0;
+}
+.sidebar-menu li ul li a i {
+	font-size: 10px;
+	height: 32px;
+	line-height: 32px;
+	margin-top: -16px;
+	left: 15px;
+}
+.sidebar-menu li.active>a {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
 .divider{
 	height: 1px;
 	padding: 0;
@@ -200,10 +245,55 @@ a.user-ico span {
 	margin-left:241px
 }
 .content {
-	min-height: 529px;
+	min-height: 476px;
 	background: #fff;
+	padding: 10px 20px 0px 20px;
 }
 
+.content .welcome h1{
+	color: #57697e;
+}
+
+.content p{
+	margin: 10px 0 0 0;
+	color: #57697e;
+}
+
+.block{
+	padding:10px 0 ;
+	border-bottom:#ccc solid 1px;
+}
+
+.notification h2{
+	color:#929292;
+}
+/*--  register --*/
+.admin-add input{
+	display:block;
+}
+.admin-add label{
+	line-height: 32px;
+	font-weight: 700;
+	display: block;
+	padding: 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.admin-add .required {
+	color: #d60000;
+	font-weight: 700;
+}
+.admin-add .button{
+	background: #37485d;
+	border-color: #2b394a;
+	color: #fff!important;
+	height: 28px;
+	min-width: 28px;
+	line-height: 28px;
+	padding: 0 10px;
+	font-size: 13px;
+}
 /*--  footer --*/
 .footer{
 	background: #ffffff;

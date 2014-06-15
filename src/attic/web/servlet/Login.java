@@ -31,9 +31,9 @@ public class Login extends HttpServlet {
 	      request.setCharacterEncoding("utf-8");  
 
 	      if(select(request,response))
-	    	  response.sendRedirect("index.jsp");
+	    	  response.sendRedirect("index/index.jsp");
 	      else 
-	    	  response.sendRedirect("login.jsp");
+	    	  response.sendRedirect("../login.jsp");
 	}
 	
     public boolean select(HttpServletRequest request, HttpServletResponse response) {  

@@ -58,10 +58,12 @@ public class NodeDaoImpl implements NodeDao{
 	            while(rs.next()) {  
 	            	Node navelem=new Node();
 	            	navelem.setId(Integer.parseInt(rs.getString(1)));
-	            	navelem.setName(rs.getString(2));
-	            	navelem.setTitle(rs.getString(3));
-	            	navelem.setPid(Integer.parseInt(rs.getString(4)));
-	            	navelem.setIcon(rs.getString(6));
+	            	navelem.setModule(rs.getString(2));
+	            	navelem.setAction(rs.getString(3));
+	            	navelem.setTitle(rs.getString(4));
+	            	navelem.setPid(Integer.parseInt(rs.getString(5)));
+	            	navelem.setIcon(rs.getString(7));
+	            	navelem.setUrl(rs.getString(8));
 	            	nav.add(navelem);
 	            }  
 	            release(rs, stmt);  
