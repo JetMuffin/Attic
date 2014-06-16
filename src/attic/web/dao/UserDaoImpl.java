@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException; 
 import java.io.*;
 
-import attic.web.model.Admin;
+import attic.web.model.User;
 
-public class AdminDaoImpl implements AdminDao  {
+public class UserDaoImpl implements UserDao  {
 	
 	 private static Connection conn = null;  
 	 private PreparedStatement pstmt = null;  
@@ -47,9 +47,9 @@ public class AdminDaoImpl implements AdminDao  {
 	        }  
 	  }  
 	 
-	 public Admin select(Admin entity) {   
+	 public User select(User entity) {   
 	        // 声明sql语句  
-	        String sql = "select * from at_admin where uid=? and password=?";  
+	        String sql = "select * from att_user where uid=? and password=?";  
 	        try {  
 	            // 创建
 	        	pstmt = conn.prepareStatement(sql);  
@@ -60,11 +60,11 @@ public class AdminDaoImpl implements AdminDao  {
 	            // 执行更新  
 	            rs = pstmt.executeQuery();  
 	            if (rs.next()) {  
-	            	String realname=rs.getString(4);
-	            	String status_str=rs.getString(5);
-	            	int status=Integer.parseInt(status_str);
-	                entity.setRealname(realname);
-	                entity.setStatus(status);
+	            	String name=rs.getString(4);
+	            	String authority_str=rs.getString(5);
+	            	int authority=Integer.parseInt(authority_str);
+	                entity.setName(name);
+	                entity.setAuthority(authority);
 	            }  
 	            else{
 	            	entity=null;
@@ -78,14 +78,16 @@ public class AdminDaoImpl implements AdminDao  {
 	        return entity;  
 	    }  
 	 
-	  public boolean insert(Admin entity) {  
+	  public boolean insert(User entity) {  
 	        boolean flag = false;  
-	        String sql = "insert into at_admin(uid,pass) values(?,?)";  
+	        String sql = "insert into att_user(uid,password,name,authority) values(?,?,?,?)";  
 	        try {  
 	            pstmt = conn.prepareStatement(sql);  
 	            int index = 1;  
 	            pstmt.setObject(index++, entity.getUid());  
-	            pstmt.setObject(index++, entity.getPassword());  
+	            pstmt.setObject(index++, entity.getPassword()); 
+	            pstmt.setObject(index++, entity.getName());
+	            pstmt.setObject(index++, entity.getAuthority()); 
 	            int i = pstmt.executeUpdate();  
 	            if (i > 0) {  
 	                flag = true;  

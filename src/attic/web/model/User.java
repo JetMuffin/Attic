@@ -2,11 +2,11 @@ package attic.web.model;
 
 import java.io.Serializable;
 
-public class Admin implements Serializable{
+public class User implements Serializable{
 	private String uid;
 	private String password;
-	private String realname;
-	private int status;
+	private String name;
+	private int authority;
 	
 	public String getUid() {
 		return uid;
@@ -14,11 +14,11 @@ public class Admin implements Serializable{
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	public String getRealname() {
-		return realname;
+	public String getName() {
+		return name;
 	}
-	public void setRealname(String realname) {
-		this.realname = realname;
+	public void setName(String realname) {
+		this.name = realname;
 	}
 	public String getPassword() {
 		return password;
@@ -26,10 +26,10 @@ public class Admin implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getStatus() {
-		return status;
+	public int getAuthority() {
+		return authority;
 	}
-	public void setStatus(int status) {
-		this.status = status;
+	public void setAuthority(int authority) {
+		this.authority = authority;
 	}
 }

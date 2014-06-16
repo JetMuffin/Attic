@@ -50,7 +50,7 @@ public class NodeDaoImpl implements NodeDao{
 	 
 	 public ArrayList<Node> getAllNav(){
 		 ArrayList<Node> nav=new ArrayList<Node>();
-		 String sql = "select * from at_nav_node";
+		 String sql = "select * from att_nav_node";
 		 try {  
 	            // ´´½¨
 	        	stmt = conn.createStatement();   

@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse; 
 import javax.servlet.http.HttpSession;
 
-import attic.web.dao.AdminDao;
-import attic.web.dao.AdminDaoImpl;
-import attic.web.model.Admin;
+import attic.web.dao.UserDao;
+import attic.web.dao.UserDaoImpl;
+import attic.web.model.User;
 
 public class Login extends HttpServlet {
-	private AdminDao adminDao = new AdminDaoImpl(); 
+	private UserDao userDao = new UserDaoImpl(); 
        
 
     public Login() {
@@ -33,21 +33,21 @@ public class Login extends HttpServlet {
 	      if(select(request,response))
 	    	  response.sendRedirect("index/index.jsp");
 	      else 
-	    	  response.sendRedirect("../login.jsp");
+	    	  response.sendRedirect("login.jsp");
 	}
 	
     public boolean select(HttpServletRequest request, HttpServletResponse response) {  
         String uid = request.getParameter("uid");  
         String password = request.getParameter("password"); 
         boolean flag;
-        Admin entity = new Admin();  
+        User entity = new User();  
 	    HttpSession session=request.getSession(true);
         entity.setUid(uid);  
         entity.setPassword(password);  
-        entity = adminDao.select(entity);  
+        entity = userDao.select(entity);
         if (entity!=null) {   
         	flag=true;
-            session.setAttribute("admin", entity);  
+            session.setAttribute("user", entity);  
             session.setAttribute("msg", "µÇÂ¼³É¹¦");  
         } else { 
         	flag=false;
