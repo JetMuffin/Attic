@@ -14,9 +14,7 @@
 						<ul>
 							<c:forEach var="nav_son" items="${nav_son}"> 
 								<c:if test="${nav_son.pid eq nav.id}">						
-									<li><a href="module.do?action_name=${nav_son.action}&module_name=${nav_son.module}">
-										<i class="fa fa-chevron-right"></i>${nav_son.title}</a>
-									</li>
+									<li><a href=${nav_son.url}><i class="fa fa-chevron-right"></i>${nav_son.title}</a></li>
 								</c:if> 
 							</c:forEach> 	
 						</ul>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="attic.web.model.User"%> 
+
 <%
 	User user = (User)session.getAttribute("user"); 
 	if(user==null)
@@ -10,7 +11,6 @@
 	}
     response.setCharacterEncoding("utf-8");  
     request.setCharacterEncoding("utf-8");
-    
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,14 +29,19 @@
     		<jsp:param value="首页" name="href"/>
     	</jsp:include>
     	<div class="content">
-    		<div class="welcome block">
-    			<h1>您好，${user.name}</h1>
-    			<p>这是网站的后台，请您不要对系统做恶意的改动，否则将会破坏网站的运行。</p>
-    			<p><strong>您可以点击左侧的菜单选择您需要的操作。</strong></p>	
-    		</div>
-    		<div class="notification block">
-    			<h2>通知</h2>
-    			<p>您暂时没有未读的通知。</p>
+    		<div class="admin-add">
+	    		<form action="Register">
+	    			<label for="" class="label">用户名：<span class="required">*</span></label>
+	    			<input type="text" class="input" required>
+	    			<label for="">密码：<span class="required">*</span></label>
+	    			<input type="password" class="input" required>
+	    			<label for="">真实姓名：</label>
+	    			<input type="text" class="input" required>
+	    			<label for="">验证码：<span class="required">*</span></label>
+	    			<input type="text" class="input" required>
+	    			<input type="submit" class="button" value="提交"/>
+	    			<input type="reset" class="button" value="重置"/>
+	    		</form>    		
     		</div>
    	 	</div>
 		<jsp:include page="../common/footer.jsp" />

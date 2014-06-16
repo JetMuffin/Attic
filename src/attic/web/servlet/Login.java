@@ -30,8 +30,14 @@ public class Login extends HttpServlet {
 	      response.setCharacterEncoding("utf-8");  
 	      request.setCharacterEncoding("utf-8");  
 
-	      if(select(request,response))
-	    	  response.sendRedirect("index/index.jsp");
+	      if(select(request,response)){
+	    	  HttpSession session=request.getSession(true);
+	    	  User entity = (User)session.getAttribute("user");
+	    	  if(entity.getAuthority()==1)
+	    		  response.sendRedirect("moduleIndex");
+	    	  if(entity.getAuthority()==2)
+	    		  response.sendRedirect("moduleIndex");
+	      }
 	      else 
 	    	  response.sendRedirect("login.jsp");
 	}

@@ -14,7 +14,7 @@
       <div class="user">
             <div class="user-control">
               <a href="#" title="" class="user-ico" data-toggle="dropdown">
-                  <img width="36" src="${PUBLIC}/images/hp3.jpg" alt="">
+                  <img width="36" src="../source/images/hp3.jpg" alt="">
                   <span>${user.name}</span>
                   <i class="fa fa-chevron-down"></i>
               </a>

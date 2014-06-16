@@ -15,9 +15,8 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>login</servlet-name>
-    <url-pattern>/student/login</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>logout</servlet-name>
     <servlet-class>attic.web.servlet.Logout</servlet-class>
@@ -26,23 +25,35 @@
     <servlet-name>logout</servlet-name>
     <url-pattern>/student/logout</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>register</servlet-name>
     <servlet-class>attic.web.servlet.Register</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>register</servlet-name>
-    <url-pattern>/student/register</url-pattern>
+    <url-pattern>/register</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>module</servlet-name>
     <servlet-class>attic.web.servlet.ModuleSet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>module</servlet-name>
-    <url-pattern>/module</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>moduleIndex</servlet-name>
+    <servlet-class>attic.web.servlet.ModuleSetIndex</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>moduleIndex</servlet-name>
+    <url-pattern>/moduleIndex</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>static</servlet-name>
+    <servlet-class>attic.web.servlet.StaticWords</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 </web-app>

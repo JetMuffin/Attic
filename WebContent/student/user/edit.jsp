@@ -10,7 +10,6 @@
 	}
     response.setCharacterEncoding("utf-8");  
     request.setCharacterEncoding("utf-8");
-    
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,6 +18,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台管理-首页</title>
 <link type="text/css" rel="stylesheet" href="${PUBLIC}/css/index.css" />
+<link type="text/css" rel="stylesheet" href="${PUBLIC}/css/user.css" />
 <link href="${PUBLIC}/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
@@ -29,14 +29,47 @@
     		<jsp:param value="首页" name="href"/>
     	</jsp:include>
     	<div class="content">
-    		<div class="welcome block">
-    			<h1>您好，${user.name}</h1>
-    			<p>这是网站的后台，请您不要对系统做恶意的改动，否则将会破坏网站的运行。</p>
-    			<p><strong>您可以点击左侧的菜单选择您需要的操作。</strong></p>	
-    		</div>
-    		<div class="notification block">
-    			<h2>通知</h2>
-    			<p>您暂时没有未读的通知。</p>
+    		<div class="edit-title"><h3>个人资料</h3></div>
+    		<div class="edit-form">
+    			<form action="">
+    				<table>
+    					<tr>
+    						<td class="name">学号：</td>
+    						<td><input type="text" value="" class="edit-input"/></td>
+    					</tr>
+    					<tr>
+    						<td class="name">密码：</td>
+    						<td><input type="password" class="edit-input"/></td>
+    					</tr>
+    					<tr>
+    						<td class="name">真实姓名：</td>
+    						<td><input type="text" value="" class="edit-input"/></td>
+    					</tr>
+    					<tr>
+    						<td class="name">性别：</td>
+    						<td class="sex">
+    							<label><input type="radio" name="sex" value="1"/>男</label>
+    							<label><input type="radio" name="sex" value="0"/>女</label>
+    						</td>
+    					</tr>
+    					<tr>
+    						<td class="name">学校：</td>
+    						<td><input type="text" value=" " class="edit-input"/></td>
+    					</tr>
+    					 <tr>
+    						<td class="name">专业：</td>
+    						<td><input type="text" value=" " class="edit-input"/></td>
+    					</tr>
+    					<tr>
+    						<td class="name">年级：</td>
+    						<td><input type="text" value=" " class="edit-input"/></td>
+    					</tr>
+    					 <tr>
+    						<td class="name">班级：</td>
+    						<td><input type="text" value=" " class="edit-input"/></td>
+    					</tr>
+    				</table>
+    			</form>
     		</div>
    	 	</div>
 		<jsp:include page="../common/footer.jsp" />

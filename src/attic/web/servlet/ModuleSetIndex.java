@@ -15,33 +15,31 @@ import attic.web.model.Node;
 import attic.web.dao.NodeDao;
 import attic.web.dao.NodeDaoImpl;
 
-/*
- * @模块路由
+/**
+ * @首页路由
  */
 
-public class ModuleSet extends HttpServlet {
+public class ModuleSetIndex extends HttpServlet {
 	private NodeDao nodeDao = new NodeDaoImpl(); 
 	private ArrayList<Node> NAV_KEY = new ArrayList();
     private String action_name ;
     private String module_name ;
     private String uri;
     
-    public ModuleSet() {
+    public ModuleSetIndex() {
         super();
     }
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession(true);
 		
-		action_name = request.getParameter("action_name");
-		module_name = request.getParameter("module_name");
-
+		action_name = "index";
+		module_name = "index";
+		
 		session.setAttribute("action_name",action_name);
 		session.setAttribute("module_name",module_name);
 
@@ -51,7 +49,8 @@ public class ModuleSet extends HttpServlet {
 		session.setAttribute("nav_son",NAV_KEY);
 		
 
-		uri = "../" + module_name + "/" + action_name +".jsp";
-		response.sendRedirect(uri);		
+		uri = "student/index/index.jsp";
+		response.sendRedirect(uri);
 	}
+
 }
