@@ -29,21 +29,22 @@
     		<jsp:param value="首页" name="href"/>
     	</jsp:include>
     	<div class="content">
+    		<div></div>
     		<div class="edit-title"><h3>个人资料</h3></div>
     		<div class="edit-form">
     			<form action="">
     				<table>
     					<tr>
     						<td class="name">学号：</td>
-    						<td><input type="text" value="" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.uid}" class="edit-input"/></td>
     					</tr>
     					<tr>
     						<td class="name">密码：</td>
-    						<td><input type="password" class="edit-input"/></td>
+    						<td><input type="password" class="edit-input" value="${user.password}"/></td>
     					</tr>
     					<tr>
     						<td class="name">真实姓名：</td>
-    						<td><input type="text" value="" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.name}" class="edit-input"/></td>
     					</tr>
     					<tr>
     						<td class="name">性别：</td>
@@ -54,19 +55,23 @@
     					</tr>
     					<tr>
     						<td class="name">学校：</td>
-    						<td><input type="text" value=" " class="edit-input"/></td>
+    						<td><input type="text" value="${stu.school}" class="edit-input"/></td>
     					</tr>
     					 <tr>
     						<td class="name">专业：</td>
-    						<td><input type="text" value=" " class="edit-input"/></td>
+    						<td><input type="text" value="${stu.major}" class="edit-input"/></td>
     					</tr>
     					<tr>
     						<td class="name">年级：</td>
-    						<td><input type="text" value=" " class="edit-input"/></td>
+    						<td><input type="text" value="${stu.grade}" class="edit-input"/></td>
     					</tr>
     					 <tr>
     						<td class="name">班级：</td>
-    						<td><input type="text" value=" " class="edit-input"/></td>
+    						<td><input type="text" value="${stu.classes}" class="edit-input"/></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td><input type="submit" value="确认修改" class="btn rbtn"/></td>
     					</tr>
     				</table>
     			</form>

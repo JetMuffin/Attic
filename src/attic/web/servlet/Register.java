@@ -8,14 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse; 
 import javax.servlet.http.HttpSession;
 
-import attic.web.dao.UserDao;
-import attic.web.dao.UserDaoImpl;
-import attic.web.model.User;
+import attic.web.dao.*;
+import attic.web.model.*;
 
 public class Register extends HttpServlet {
 	private UserDao userDao = new UserDaoImpl(); 
+    private StuDao stuDao = new StuDaoImpl();
+    private User entity = new User();  
+    private Student stu = new Student();
     
-
     public Register() {
         super();
     }
@@ -28,7 +29,12 @@ public class Register extends HttpServlet {
 	      response.setCharacterEncoding("utf-8");  
 	      request.setCharacterEncoding("utf-8");  
 	      if(insert(request,response))
+	      {
+	    	  stu.setUid(entity.getUid());
+	    	  stu.setName(entity.getName());
+	    	  stuDao.insert(stu);
 	    	  response.sendRedirect("login.jsp");
+	      }
 	      else 
 	    	  response.sendRedirect("register.jsp");
 	}
@@ -39,7 +45,7 @@ public class Register extends HttpServlet {
         String password = request.getParameter("password");
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
-        User entity = new User();  
+
         entity.setUid(uid);  
         entity.setPassword(password);  
         entity.setName(firstname+lastname);
@@ -47,8 +53,7 @@ public class Register extends HttpServlet {
         boolean flag = userDao.insert(entity);  
         if (flag) {  
             System.out.println("×¢²á³É¹¦");
-            session.setAttribute("msg", "×¢²á³É¹¦£¬ÇëµÇÂ¼"); 
-            
+            session.setAttribute("msg", "×¢²á³É¹¦£¬ÇëµÇÂ¼");             
         } else {  
             System.out.println("×¢²áÊ§°Ü");
             session.setAttribute("msg", "×¢²áÊ§°Ü");  
