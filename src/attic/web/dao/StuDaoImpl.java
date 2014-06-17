@@ -13,7 +13,7 @@ public class StuDaoImpl implements StuDao{
 	 private static Connection conn = null;  
 	 private PreparedStatement pstmt = null;  
 	 private ResultSet rs = null;  
-	 private static final String URL = "jdbc:mysql://localhost:3306/attic";
+	 private static final String URL = "jdbc:mysql://localhost:3306/attic?useUnicode=true&characterEncoding=UTF-8";
 	 
 	 static {  
 	        try {  
@@ -100,8 +100,33 @@ public class StuDaoImpl implements StuDao{
 	        } catch (SQLException e) {    
 	            e.printStackTrace();  
 	        } 
-	        System.out.println(stu.getUid());
 	        release(rs, pstmt);  
 	        return flag;  
-	    }     
+	    }
+	  
+	  public boolean update(Student stu){
+		  boolean flag=false;
+		  String sql = "select * from att_user where uid=" + stu.getUid();
+		  try {  
+	            pstmt = conn.prepareStatement(sql);  
+	            rs = pstmt.executeQuery(sql);
+	            if(rs.next())
+	            {
+	            	String updatesql = "update att_user_stu set name='" + stu.getName() + "', sex='"
+	            			+ stu.getSex() + "', school='" + stu.getSchool() + "', major='" 
+	            			+ stu.getMajor() + "', grade='" + stu.getGrade() + "', class='" 
+	            			+ stu.getClasses() +"' where uid='" 
+	            			+ stu.getUid() + "'";
+		            int i = pstmt.executeUpdate(updatesql);   
+	            	if (i > 0) {  
+		                flag = true;  
+		            }  
+	            }   
+		  } catch (SQLException e) {    
+			  e.printStackTrace();  
+	        }
+	        release(rs, pstmt);  
+	        return flag;  
+	  }
+	 
 }

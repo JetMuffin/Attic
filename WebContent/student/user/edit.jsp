@@ -1,16 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import="attic.web.model.User"%> 
-<%
-	User user = (User)session.getAttribute("user"); 
-	if(user==null)
-	{
-		session.setAttribute("msg","请先登录！");
-		response.sendRedirect("../login.jsp");
-		return;
-	}
-    response.setCharacterEncoding("utf-8");  
-    request.setCharacterEncoding("utf-8");
-%>
+﻿<%@ page language="java" contentType="text/html; charset=utf-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,42 +20,42 @@
     		<div></div>
     		<div class="edit-title"><h3>个人资料</h3></div>
     		<div class="edit-form">
-    			<form action="">
+    			<form action="updateInfo" method="post">
     				<table>
     					<tr>
     						<td class="name">学号：</td>
-    						<td><input type="text" value="${stu.uid}" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.uid}" class="edit-input" name="uid" required></td>
     					</tr>
     					<tr>
     						<td class="name">密码：</td>
-    						<td><input type="password" class="edit-input" value="${user.password}"/></td>
+    						<td><input type="password" class="edit-input" value="${user.password}" name="password" required></td>
     					</tr>
     					<tr>
     						<td class="name">真实姓名：</td>
-    						<td><input type="text" value="${stu.name}" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.name}" class="edit-input" name="name" required></td>
     					</tr>
     					<tr>
     						<td class="name">性别：</td>
     						<td class="sex">
-    							<label><input type="radio" name="sex" value="1"/>男</label>
+    							<label><input type="radio" name="sex" value="1" checked="checked"/>男</label>
     							<label><input type="radio" name="sex" value="0"/>女</label>
     						</td>
     					</tr>
     					<tr>
     						<td class="name">学校：</td>
-    						<td><input type="text" value="${stu.school}" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.school}" class="edit-input" name="school" required></td>
     					</tr>
     					 <tr>
     						<td class="name">专业：</td>
-    						<td><input type="text" value="${stu.major}" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.major}" class="edit-input" name="major" required></td>
     					</tr>
     					<tr>
     						<td class="name">年级：</td>
-    						<td><input type="text" value="${stu.grade}" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.grade}" class="edit-input" name="grade" required></td>
     					</tr>
     					 <tr>
     						<td class="name">班级：</td>
-    						<td><input type="text" value="${stu.classes}" class="edit-input"/></td>
+    						<td><input type="text" value="${stu.classes}" class="edit-input" name="classes" required></td>
     					</tr>
     					<tr>
     						<td></td>

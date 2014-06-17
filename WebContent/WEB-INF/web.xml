@@ -41,8 +41,7 @@
     <servlet-name>module</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>moduleIndex</servlet-name>
     <servlet-class>attic.web.servlet.ModuleSetIndex</servlet-class>
   </servlet>
@@ -50,10 +49,33 @@
     <servlet-name>moduleIndex</servlet-name>
     <url-pattern>/moduleIndex</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>static</servlet-name>
     <servlet-class>attic.web.servlet.StaticWords</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet>
+    <servlet-name>updateInfo</servlet-name>
+    <servlet-class>attic.web.servlet.UpdateInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateInfo</servlet-name>
+    <url-pattern>/student/user/updateInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>practiceShow</servlet-name>
+    <servlet-class>attic.web.servlet.Practice</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>practiceShow</servlet-name>
+    <url-pattern>/student/practice/practice</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>loginCheck</filter-name>
+    <filter-class>attic.web.servlet.LoginCheck</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginCheck</filter-name>
+    <url-pattern>/student/*</url-pattern>
+  </filter-mapping>
 </web-app>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import attic.web.dao.*;
 import attic.web.model.*;
+import attic.web.servlet.MD5Util;
 
 
 public class Login extends HttpServlet {
@@ -52,11 +53,12 @@ public class Login extends HttpServlet {
 	
     public boolean select(HttpServletRequest request, HttpServletResponse response) {  
         String uid = request.getParameter("uid");  
-        String password = request.getParameter("password"); 
+        String upassword = request.getParameter("password"); 
         boolean flag;
-          
+        entity = new User();  
 	    HttpSession session=request.getSession(true);
-        entity.setUid(uid);  
+	    entity.setUid(uid);  
+        String password = MD5Util.MD5(upassword);
         entity.setPassword(password);  
         entity = userDao.select(entity);
         if (entity!=null) {   

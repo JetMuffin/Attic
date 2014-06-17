@@ -1,0 +1,28 @@
+.prtc-header {
+	border-bottom: solid 1px rgb(221,221,221);
+	padding: 10px 0;
+}
+.prtc-header h2{
+	margin: 10px 0;
+}
+.prtc-header small{
+	color: #57697e;
+	font-size: 14px;
+	padding-left: 10px;
+}
+.prtc-form{
+	font-size: 15px;
+}
+.prtc-ques{
+	margin: 10px 5px 15px 5px;
+}
+.prtc-desc{
+	padding: 5px 0;
+}
+.prtc-op label{
+	margin-right: 35px;
+	cursor: pointer;
+}
+.prtc-op label input{
+	margin-right: 5px;
+}

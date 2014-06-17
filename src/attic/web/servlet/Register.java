@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import attic.web.dao.*;
 import attic.web.model.*;
+import attic.web.servlet.MD5Util;
 
 public class Register extends HttpServlet {
 	private UserDao userDao = new UserDaoImpl(); 
@@ -46,7 +47,8 @@ public class Register extends HttpServlet {
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
 
-        entity.setUid(uid);  
+        entity.setUid(uid);
+        password = MD5Util.MD5(password);
         entity.setPassword(password);  
         entity.setName(firstname+lastname);
         entity.setAuthority(1);

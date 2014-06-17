@@ -1,17 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ page import="attic.web.model.User"%> 
-
-<%
-	User user = (User)session.getAttribute("user"); 
-	if(user==null)
-	{
-		session.setAttribute("msg","请先登录！");
-		response.sendRedirect("../login.jsp");
-		return;
-	}
-    response.setCharacterEncoding("utf-8");  
-    request.setCharacterEncoding("utf-8");
-%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

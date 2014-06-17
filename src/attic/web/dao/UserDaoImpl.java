@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException; 
 import java.io.*;
 
+import attic.web.model.Student;
 import attic.web.model.User;
 
 public class UserDaoImpl implements UserDao  {
@@ -14,7 +15,7 @@ public class UserDaoImpl implements UserDao  {
 	 private static Connection conn = null;  
 	 private PreparedStatement pstmt = null;  
 	 private ResultSet rs = null;  
-	 private static final String URL = "jdbc:mysql://localhost:3306/attic";
+	 private static final String URL = "jdbc:mysql://localhost:3306/attic?useUnicode=true&characterEncoding=UTF-8";
 	    
 	 static {  
 	        try {  
@@ -97,5 +98,29 @@ public class UserDaoImpl implements UserDao  {
 	        }  
 	        release(rs, pstmt);  
 	        return flag;  
-	    }     
+	    }
+	  
+	  public boolean update(User entity){
+		  boolean flag=false;
+	      String sql = "select * from att_user where uid=?";
+		  try {  
+	            pstmt = conn.prepareStatement(sql);  
+	            pstmt.setObject(1, entity.getUid()); 
+	            rs = pstmt.executeQuery();
+	            if(rs.next())
+	            {
+	            	String updatesql = "update att_user set password='" + entity.getPassword() + "' where uid='" 
+	            			+ entity.getUid() + "'";
+	            	int i = pstmt.executeUpdate(updatesql);
+	            	if (i > 0) {  
+		                flag = true;  
+		            }  
+	            }     
+	        } catch (SQLException e) {    
+	            e.printStackTrace();  
+	        } 
+	        release(rs, pstmt);  
+	        return flag;  
+	        
+	  }
 }
