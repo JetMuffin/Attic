@@ -1,6 +1,7 @@
 package attic.web.model;
 
 public class Question {
+	private int id;
 	private int number;
 	private int unit;
 	private String subject;
@@ -9,6 +10,14 @@ public class Question {
 	private int type;
 	private String answer;
 
+	public void setId(int id)
+	{
+		this.id=id;
+	}
+	public int getId()
+	{
+		return id;
+	}
 	public void setNumber(int num)
 	{
 		this.number=num;

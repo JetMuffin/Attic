@@ -78,6 +78,10 @@
             $(this).parent("li").addClass("active"),
             $(this).next("ul").slideDown();
         });
+        
+        var height = $(".main").height();
+        $(".sidebar").css("min-height",height);
+        
 	});
 </script>
 </body>

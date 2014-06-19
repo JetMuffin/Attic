@@ -13,13 +13,14 @@
 <body>
 <div class="container">
 	<section class="main">	
+
 			<c:if test="${msq ne null}">
 				<div class="message">
 					<i class="icon-warning"></i>${msg}
 					<a class="removing-tag"><i class="fa fa-times"></i></a>
 				</div>
 			</c:if> 
-		<form class="login-form" action="register" method="post">
+		<form class="login-form" action="register?authority=<%=request.getParameter("authority")%>" method="post">
 			<h1>在线学习系统</h1>
 			<a href="login.jsp" class="signup">登录<i class="fa fa-arrow-circle-right"></i></a>
 			<p>

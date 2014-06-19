@@ -62,6 +62,7 @@ public class QuesDaoImpl implements QuesDao{
 	            rs = pstmt.executeQuery();  
 	            while (rs.next()) { 
 	            	Question ques = new Question();
+	            	ques.setId(Integer.parseInt(rs.getString(1)));
 	            	ques.setNumber(Integer.parseInt(rs.getString(2)));
 	            	ques.setUnit(unit);
 	            	ques.setSubject(subject);
@@ -79,4 +80,38 @@ public class QuesDaoImpl implements QuesDao{
 	        // 修改返回值变量  
 	        return queSet;  
 	    }  
+	 
+	 public  Question selectById(int id)
+	 {
+		   // 声明sql语句  
+	        String sql = "select * from att_ques where id=?";  
+	        Question q = new Question();
+	        try {  
+	            // 创建
+	        	pstmt = conn.prepareStatement(sql);  
+	            // 为占位符赋值  
+	            pstmt.setObject(1, id);   
+	            // 执行更新  
+	            rs = pstmt.executeQuery();  
+	            if (rs.next()) { 
+	            	q.setId(id);
+	            	q.setNumber(Integer.parseInt(rs.getString(2)));
+	            	q.setUnit(Integer.parseInt(rs.getString(3)));
+	            	q.setSubject(rs.getString(4));
+	            	q.setDescription(rs.getString(5));
+	            	q.setOption(rs.getString(6));
+	            	q.setType(Integer.parseInt(rs.getString(7)));
+	            	q.setAnswer(rs.getString(8));
+	            } 
+	            else {
+	            	System.out.println("not found!");
+	            }
+	            release(rs, pstmt);  
+	        } catch (SQLException e) {  
+	            e.printStackTrace();  
+	        }  
+	        release(rs, pstmt);  
+	        // 修改返回值变量  
+	        return q;   
+	 }
 }

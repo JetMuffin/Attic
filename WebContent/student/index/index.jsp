@@ -18,7 +18,7 @@
     	<div class="content">
     		<div class="welcome block">
     			<h1>您好，${user.name}</h1>
-    			<p>这是网站的后台，请您不要对系统做恶意的改动，否则将会破坏网站的运行。</p>
+    			<p>欢迎来到练习系统！</p>
     			<p><strong>您可以点击左侧的菜单选择您需要的操作。</strong></p>	
     		</div>
     		<div class="notification block">
@@ -39,6 +39,10 @@
             $(this).parent("li").addClass("active"),
             $(this).next("ul").slideDown();
         });
+        
+        var height = $(".main").height();
+        $(".sidebar").css("min-height",height);
+        
 	});
 </script>
 </body>

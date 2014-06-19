@@ -19,21 +19,30 @@
 				<a class="removing-tag"><i class="fa fa-times"></i></a>
 			</div>
 		</c:if> 
-		<form class="login-form" action="login" method="post">
-			<h1>在线学习系统</h1>
-			<a href="register.jsp" class="signup">注册<i class="fa fa-arrow-circle-right"></i></a>
-			<p>
-				<label for="login">Username</label>
-				<input type="text" name="uid" placeholder="学号/工号" required>
-			</p>
-			<p>
-				<label for="password">password</label>
-				<input type="password" name='password' placeholder="密码" required> 
-			</p>
-			<p>
-				<input type="submit" name="submit" value="登录" />
-			</p>  
-		</form>​
+		<div class="login-form-box">
+			<form class="login-form" action="login" method="post">
+				<h1>在线学习系统</h1>
+				<a href="javascript:;" class="signup">注册<i class="fa fa-arrow-circle-right"></i></a>
+				<p>
+					<label for="login">Username</label>
+					<input type="text" name="uid" placeholder="学号/工号" required>
+				</p>
+				<p>
+					<label for="password">password</label>
+					<input type="password" name='password' placeholder="密码" required> 
+				</p>
+				<p>
+					<input type="submit" name="submit" value="登录" />
+				</p>  
+			</form>
+			<div class="choose">
+				<i class="fa fa-warning"></i>请选择身份：
+				<div class="option">
+					<a href="register.jsp?authority=1"><i class="fa fa-users"></i>学生</a>
+					<a href="register.jsp?authority=2"><i class="fa fa-user"></i>教师</a>
+				</div>
+			</div>
+		</div>	​
 	</section>	
 </div>
 <script type="text/javascript" src="${PUBLIC}/js/jquery.js"></script>
@@ -42,6 +51,12 @@
 		$(".removing-tag").click(function(){
 			$(".message").fadeOut();
 		});
+		
+		$(".choose").hide();
+		$(".signup").click(function(){
+			$(".choose").fadeToggle();
+		});
+		
 	});
 </script>
 </body>

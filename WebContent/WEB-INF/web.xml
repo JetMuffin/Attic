@@ -78,4 +78,28 @@
     <filter-name>loginCheck</filter-name>
     <url-pattern>/student/*</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>getUserAc</filter-name>
+    <filter-class>attic.web.servlet.GetUserAc</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>getUserAc</filter-name>
+    <url-pattern>/student/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>SubjectSet</filter-name>
+    <filter-class>attic.web.servlet.SubjectSet</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SubjectSet</filter-name>
+    <url-pattern>/student/*</url-pattern>
+  </filter-mapping>
+    <servlet>
+    <servlet-name>Correct</servlet-name>
+    <servlet-class>attic.web.servlet.correct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Correct</servlet-name>
+    <url-pattern>/student/practice/correct</url-pattern>
+  </servlet-mapping>
 </web-app>

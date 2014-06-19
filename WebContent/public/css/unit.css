@@ -26,3 +26,12 @@
 .prtc-op label input{
 	margin-right: 5px;
 }
+.prtc-op span{
+	margin-right:15px;
+}
+.prtc-answer span{
+	margin-right:10px;
+}
+.prtc-answer span strong{
+	color:red;
+}

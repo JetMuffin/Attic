@@ -19,25 +19,27 @@
     		<jsp:param value="首页" name="href"/>
     	</jsp:include>
     	<div class="content">
-    		<div class="prtc-header">
+			<div class="prtc-header">
     			<h2>${subject}</h2>
     			<small>第${unit}单元</small>
     		</div>
-            <div class="prtc-form">
-                <form action="correct?subject=${subject}&unit=${unit}&quenum=${fn:length(queset)}" method="post">
-        			<c:forEach var="qs" items="${queset}" varStatus="status">
-        				<div class="prtc-ques">
-        					<div class="prtc-desc"><p><span>${qs.number}. </span>${qs.description}</p></div>
-        					<div class="prtc-op">${qs.option}</div>
-        				</div>
-        			</c:forEach>
-        			<input type="submit" class="btn"/>
-                </form>
-            </div>
-   	 	</div>
+    		<div class="prtc-statics">
+    			<h1>${score}分！</h1>
+    			<h3>你共做对了${cornum}题，做错了${wrongnum}题</h3>
+    		</div>
+	   	 	<c:forEach var="ws" items="${wrongset}" varStatus="status">
+	        	<div class="prtc-ques">
+	        		<div class="prtc-desc"><p><span>${ws.number}. </span>${ws.description}</p></div>
+	        		<div class="prtc-op">${ws.option}</div>
+	        		<div class="prtc-answer">
+	        			<span>正确答案：<strong>${ws.answer}</strong></span>
+	        			<span>你的答案：${fn:substring(wronganswer,status.index,status.index+1)}</span>
+	        		</div>
+	        	</div>
+	        </c:forEach>
+        </div>
 		<jsp:include page="../common/footer.jsp" />
-    </div>
-</div>
+	</div>
 <script type="text/javascript" src="${PUBLIC}/js/jquery.js"></script>
 <script>
 	$(document).ready(function(){
@@ -48,28 +50,27 @@
             $(this).parent("li").addClass("active"),
             $(this).next("ul").slideDown();
         });
-		
+        
         var height = $(".main").height();
         $(".sidebar").css("min-height",height);
         
         //读取JSON题目选项信息
-        var question=$(".prtc-form form .prtc-ques");
+        var question=$(".prtc-ques");
         var i = 1;
         question.each(function(){
             var json_data = $(this).children(".prtc-op").html();
             var json=eval(json_data); 
-            var option_base = "<label><input type='radio' name='question_" + i + "'";
-            var option,option_html="";
+            var option,option_html="<p>";
             $.each(json,function(i,n){  
-                option = option_base + "value='" + json[i].option +"'/>" + json[i].option 
-                        + ". " + json[i].answer +"</label>";
+                option =  "<span>"+json[i].option + ". " + json[i].answer +"</span>";
                 option_html += option;              
             });
+            option_html+="</p>";
             console.log(option_html);
              $(this).children(".prtc-op").html(option_html);
             i++;
         });
-	});
+        });
 </script>
 </body>
 </html>
